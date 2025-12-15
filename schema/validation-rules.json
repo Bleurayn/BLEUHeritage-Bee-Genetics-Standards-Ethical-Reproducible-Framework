@@ -1,0 +1,38 @@
+{
+  "version": "1.0.0",
+  "description": "Validation rules for BLEUHeritage Bee Genetics metadata",
+  "rules": {
+    "identifier_patterns": {
+      "study_id": "^[A-Z]{2,4}-[A-Z]{6,8}-[0-9]{4}$",
+      "site_id": "^SITE-[A-Z0-9]{4,12}$",
+      "sample_id": "^[A-Z]{2,4}-[A-Z]{6,8}-[0-9]{4}-[A-Z0-9]{1,6}-SITE-[A-Z0-9]{4,12}-[0-9]{8}-[0-9]{3}$",
+      "coc_id": "^COC-[A-Z0-9]{8,20}$",
+      "consent_id": "^CONSENT-[A-Z0-9]{6,18}$"
+    },
+    "required_fields": {
+      "study": ["study_id", "title"],
+      "site": ["site_id", "site_type", "general_location"],
+      "sample": ["sample_id", "collection_date", "preservation_method"]
+    },
+    "value_constraints": {
+      "collection_date": {
+        "not_future": true,
+        "format": "YYYY-MM-DD"
+      },
+      "storage_temperature_c": {
+        "min": -196,
+        "max": 25
+      }
+    },
+    "privacy_rules": [
+      "Exact coordinates must not appear in public metadata",
+      "Site descriptions must be generalized to region level for public data",
+      "Landowner/consent information must be kept internal"
+    ]
+  },
+  "compliance_notes": {
+    "gdpr": "Personal data must be handled according to data minimization principles",
+    "nagoya": "Prior informed consent required for genetic resources",
+    "indigenous_data_sovereignty": "CARE principles apply for indigenous knowledge"
+  }
+}
