@@ -1,0 +1,4 @@
+study_id,site_id,sample_id,collection_date,collection_method,life_stage,preservation_method,site_type,general_location,habitat_type,coc_id,status
+BH-BEEGEN-0001,SITE-001,BH-BEEGEN-0001-R1-SITE-001-20251215-001,2025-12-15,worker_bee_collection,adult_worker,ethanol_95_100_percent,managed_apiary,Central_Valley_Region,agricultural_landscape,COC-20251215-A1B2C3D4,COLLECTED
+BH-BEEGEN-0001,SITE-002,BH-BEEGEN-0001-R1-SITE-002-20251215-001,2025-12-15,nonlethal_leg_clip,adult_worker,ethanol_95_100_percent,wild_or_feral_colony,Forest_Reserve_Region,woodland_edge,COC-20251215-E5F6G7H8,COLLECTED
+BH-BEEGEN-0001,SITE-001,BH-BEEGEN-0001-R1-SITE-001-20251215-002,2025-12-15,worker_bee_collection,adult_worker,ethanol_95_100_percent,managed_apiary,Central_Valley_Region,agricultural_landscape,COC-20251215-A1B2C3D4,COLLECTED
