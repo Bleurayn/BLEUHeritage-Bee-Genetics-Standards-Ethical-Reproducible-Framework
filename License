@@ -1,0 +1,34 @@
+
+### **LICENSE.md**
+```markdown
+# License Information
+
+## For Documentation and Standards
+
+All documentation, schemas, protocols, and standards in this repository are licensed under the Creative Commons Attribution 4.0 International License.
+
+You are free to:
+- **Share** — copy and redistribute the material in any medium or format
+- **Adapt** — remix, transform, and build upon the material for any purpose, even commercially
+
+Under the following terms:
+- **Attribution** — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
+
+Full license text: https://creativecommons.org/licenses/by/4.0/legalcode
+
+## For Software Implementation
+
+The full software implementation of the BLEUHeritage Bee Genetics Platform, including:
+- Chain of Custody Ledger System
+- Automated Privacy Masking Algorithms
+- Compliance Automation Engine
+- Production Analysis Pipeline
+- Integration APIs and Connectors
+
+Is available under commercial license. For licensing inquiries, contact licensing@bleuheritage.org
+
+## Attribution
+
+When using these standards, please cite:
+
+BLEUHeritage. (2025). Cassandra Harrison / Avableu Designs LTD Liability Company. BLEUHeritage Bee Genetics Standards and Protocols (Version 1.0.0) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.XXXXXXX
