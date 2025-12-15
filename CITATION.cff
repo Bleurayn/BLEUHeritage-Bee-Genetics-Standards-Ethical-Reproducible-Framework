@@ -1,0 +1,25 @@
+# CITATION.cff
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "BLEUHeritage Bee Genetics Standards and Protocols"
+version: 1.0.0
+doi: 10.5281/zenodo.XXXXXXX
+date-released: 2025-12-14
+authors:
+  - family-names: "BLEUHeritage"
+    given-names: ""
+    affiliation: "BLEUHeritage"
+    orcid: "https://orcid.org/0009-0000-0000-000X"
+license: CC-BY-4.0
+repository-code: "https://github.com/bleuheritage/standards"
+abstract: |
+  Standardized framework for bee genetics research with integrated 
+  ethical governance, data privacy, and reproducible science practices.
+  Includes metadata schemas, field protocols, and governance models.
+keywords:
+  - bee-genetics
+  - metadata-standards
+  - reproducible-research
+  - data-governance
+  - biodiversity
+  - conservation-genetics
