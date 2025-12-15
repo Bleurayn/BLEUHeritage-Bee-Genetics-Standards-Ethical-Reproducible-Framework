@@ -1,0 +1,293 @@
+# BLEUHeritage Bee Genetics Study - Minimal Configuration
+# Version: 1.0.0
+# Study ID: BH-BEEGEN-0001
+
+# ============================================================================
+# STUDY CONFIGURATION
+# ============================================================================
+
+study:
+  # Basic study information
+  id: "BH-BEEGEN-0001"
+  name: "Minimal Bee Genetics Study"
+  version: "1.0.0"
+  description: "Example configuration for bee genetics study using BLEUHeritage standards"
+  
+  # Contact information
+  contact:
+    name: "Researcher Name"
+    email: "research@institution.edu"
+    institution: "Research Institution"
+  
+  # Ethics and compliance
+  ethics:
+    approved: true
+    approval_id: "IRB-2025-001"
+    consent_required: true
+    data_sovereignty_applied: true
+
+# ============================================================================
+# METADATA CONFIGURATION
+# ============================================================================
+
+metadata:
+  # File paths
+  samplesheet: "data/metadata/samples.csv"
+  sitesheet: "data/metadata/sites.csv"
+  output_dir: "results/metadata/"
+  
+  # Schema validation
+  schema_file: "schemas/metadata-schema.json"
+  validate_on_load: true
+  strict_validation: false
+  
+  # Privacy settings
+  privacy:
+    mask_coordinates: true
+    generalization_level: "region"
+    sensitive_fields: ["consent_id", "landowner_name", "exact_coordinates"]
+  
+  # Export settings
+  export:
+    public_tier: true
+    collaborator_tier: false
+    include_schema: true
+    format: "csv"
+
+# ============================================================================
+# SAMPLING CONFIGURATION
+# ============================================================================
+
+sampling:
+  # Collection methods (choose one)
+  method: "nonlethal_leg_clip"  # Options: nonlethal_leg_clip, worker_bee_collection
+  life_stage_target: "adult_worker"
+  
+  # Sample size
+  samples_per_site: 20
+  minimum_samples: 10
+  
+  # Preservation
+  preservation_method: "ethanol_95_100_percent"
+  storage_temperature_c: 4
+  
+  # Quality control
+  qc:
+    min_dna_concentration: 5.0  # ng/μL
+    min_260_280_ratio: 1.7
+    max_260_280_ratio: 2.2
+    contamination_check: true
+
+# ============================================================================
+# GENOMIC ANALYSIS CONFIGURATION
+# ============================================================================
+
+genomics:
+  # Reference genome
+  reference:
+    genome: "resources/reference/Apis_mellifera.fasta"
+    annotation: "resources/reference/Apis_mellifera.gff"  # Optional
+    
+  # Sequencing strategy
+  sequencing:
+    type: "WGS"  # Options: WGS, RADseq, targeted
+    platform: "Illumina"
+    coverage: 10  # x coverage
+    read_length: 150
+    
+  # Variant calling
+  variant_calling:
+    caller: "bcftools"  # Options: bcftools, GATK, freebayes
+    min_base_qual: 20
+    min_mapq: 20
+    min_depth: 5
+    
+  # Filtering parameters
+  filtering:
+    min_qual: 30
+    min_sample_depth: 5
+    max_missing: 0.2
+    min_maf: 0.01
+
+# ============================================================================
+# POPULATION GENETICS ANALYSIS
+# ============================================================================
+
+population_genetics:
+  # Diversity metrics
+  diversity:
+    calculate_pi: true
+    calculate_heterozygosity: true
+    window_size: 10000  # bp
+    
+  # Population structure
+  structure:
+    pca:
+      enabled: true
+      n_components: 10
+    admixture:
+      enabled: false
+      k_values: [2, 3, 4, 5]
+      
+  # Differentiation
+  differentiation:
+    fst:
+      enabled: true
+      method: "weir_cockerham"
+    pairwise_comparisons: true
+
+# ============================================================================
+# DATA GOVERNANCE
+# ============================================================================
+
+governance:
+  # Data access tiers
+  tiers:
+    - name: "INTERNAL_ONLY"
+      description: "Full access for study team"
+      allowed_data: ["raw_fastq", "exact_coordinates", "full_metadata"]
+      
+    - name: "COLLABORATOR"
+      description: "Limited access for research partners"
+      allowed_data: ["processed_variants", "generalized_locations"]
+      
+    - name: "PUBLIC"
+      description: "Public summary data"
+      allowed_data: ["aggregate_statistics", "anonymized_figures"]
+  
+  # Compliance
+  compliance:
+    gdpr_applicable: true
+    nagoya_applicable: true
+    indigenous_protocols: false  # Set to true if working with Indigenous communities
+    
+  # Data release
+  release:
+    embargo_period: 365  # days before public release
+    requires_community_approval: false
+
+# ============================================================================
+# QUALITY ASSURANCE
+# ============================================================================
+
+quality_assurance:
+  # Sample QC
+  sample_qc:
+    min_reads: 1000000
+    min_coverage: 5
+    max_contamination: 0.05
+    
+  # Batch effects
+  batch_control:
+    randomize_processing: true
+    include_controls: true
+    technical_replicates: 0.05  # 5% of samples
+    
+  # Validation checks
+  validation:
+    check_relatedness: true
+    check_sex: false  # Bees are haplodiploid
+    check_ploidy: true
+
+# ============================================================================
+# OUTPUT CONFIGURATION
+# ============================================================================
+
+output:
+  # Directory structure
+  directories:
+    raw_data: "data/raw/"
+    processed_data: "data/processed/"
+    intermediate: "data/intermediate/"
+    results: "results/"
+    reports: "reports/"
+    
+  # File formats
+  formats:
+    variants: "vcf.gz"
+    alignments: "bam"
+    metadata: "csv"
+    figures: "png"
+    
+  # Report generation
+  reports:
+    generate_summary: true
+    generate_public_version: true
+    include_methods: true
+
+# ============================================================================
+# COMPUTATIONAL RESOURCES
+# ============================================================================
+
+resources:
+  # Local computation
+  local:
+    threads: 4
+    memory_gb: 16
+    temp_dir: "/tmp"
+    
+  # Cluster/HPC (optional)
+  cluster:
+    scheduler: "slurm"  # Options: slurm, pbs, sge, none
+    partition: "normal"
+    walltime: "24:00:00"
+    
+  # Cloud (optional)
+  cloud:
+    provider: "aws"  # Options: aws, gcp, azure, none
+    instance_type: "c5.2xlarge"
+    storage_gb: 100
+
+# ============================================================================
+# EXECUTION CONTROLS
+# ============================================================================
+
+execution:
+  # Pipeline control
+  pipeline:
+    engine: "snakemake"  # Options: snakemake, nextflow, custom
+    containerize: false
+    resume: true
+    
+  # Logging
+  logging:
+    level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+    file: "logs/pipeline.log"
+    capture_stdout: true
+    
+  # Notifications (optional)
+  notifications:
+    email_on_completion: false
+    email_on_failure: false
+    email_address: ""
+
+# ============================================================================
+# EXAMPLE USAGE NOTES
+# ============================================================================
+
+# This minimal configuration demonstrates the key parameters needed to run
+# a bee genetics study using BLEUHeritage standards.
+
+# To use this configuration:
+# 1. Update study information (id, name, contact)
+# 2. Set metadata file paths to your actual data
+# 3. Adjust sampling parameters for your study design
+# 4. Configure genomic analysis based on your sequencing strategy
+# 5. Set data governance according to your compliance requirements
+# 6. Adjust computational resources based on your infrastructure
+
+# Required adjustments for production use:
+# - Set actual file paths for metadata and references
+# - Enable appropriate compliance settings
+# - Configure computational resources for your system
+# - Set proper output directories
+# - Enable/disable analyses based on study goals
+
+# Validation:
+# This configuration can be validated using:
+# python validate_config.py minimal-config.yaml
+
+# References:
+# - BLEUHeritage Metadata Schema: schemas/metadata-schema.json
+# - Field Protocols: protocols/field-collection-protocol.md
+# - Ethical Guidelines: protocols/ethical-guidelines.md
