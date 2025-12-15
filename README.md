@@ -44,5 +44,16 @@ Standardized framework for bee genetics research with integrated ethical governa
 # Clone repository
 git clone https://github.com/bleuheritage/standards.git
 
+@software{bleuheritage_bee_genetics_standards_2025,
+  author       = Cassandra Harrison,
+  title        = {BLEUHeritage Bee Genetics Standards and Protocols},
+  month        = dec,
+  year         = 2025,
+  publisher    = {Zenodo},
+  version      = {1.0.0},
+  doi          = {10.5281/zenodo.XXXXXXX},
+  url          = {https://doi.org/10.5281/zenodo.XXXXXXX}
+}
+
 # Validate sample metadata
 python examples/validation-example.py examples/sample-metadata.csv
