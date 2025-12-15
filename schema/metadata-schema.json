@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://standards.bleuheritage.org/schemas/bee-genetics-metadata/v1.0.0",
+  "title": "BLEUHeritage Bee Genetics Metadata Schema",
+  "description": "Standardized metadata schema for bee genetics research with privacy and governance considerations",
+  "version": "1.0.0",
+  "type": "object",
+  "properties": {
+    "study": {
+      "type": "object",
+      "description": "Study-level metadata",
+      "properties": {
+        "study_id": {
+          "type": "string",
+          "pattern": "^[A-Z]{2,4}-[A-Z]{6,8}-[0-9]{4}$",
+          "description": "Unique study identifier"
+        },
+        "title": {
+          "type": "string",
+          "maxLength": 200,
+          "description": "Study title"
+        },
+        "description": {
+          "type": "string",
+          "description": "Brief study description"
+        }
+      },
+      "required": ["study_id", "title"]
+    },
+    "site": {
+      "type": "object",
+      "description": "Collection site metadata",
+      "properties": {
+        "site_id": {
+          "type": "string",
+          "pattern": "^SITE-[A-Z0-9]{4,12}$",
+          "description": "Unique site identifier"
+        },
+        "site_type": {
+          "type": "string",
+          "enum": [
+            "managed_apiary",
+            "wild_or_feral_colony",
+            "urban_corridor",
+            "agricultural_zone"
+          ],
+          "description": "Type of collection site"
+        },
+        "general_location": {
+          "type": "string",
+          "maxLength": 120,
+          "description": "Generalized location description (region only for public data)"
+        },
+        "habitat_type": {
+          "type": "string",
+          "description": "Habitat classification"
+        },
+        "consent_id": {
+          "type": "string",
+          "pattern": "^CONSENT-[A-Z0-9]{6,18}$",
+          "description": "Reference to consent documentation"
+        }
+      },
+      "required": ["site_id", "site_type", "general_location"]
+    },
+    "sample": {
+      "type": "object",
+      "description": "Individual sample metadata",
+      "properties": {
+        "sample_id": {
+          "type": "string",
+          "pattern": "^[A-Z]{2,4}-[A-Z]{6,8}-[0-9]{4}-[A-Z0-9]{1,6}-SITE-[A-Z0-9]{4,12}-[0-9]{8}-[0-9]{3}$",
+          "description": "Unique sample identifier"
+        },
+        "collection_date": {
+          "type": "string",
+          "format": "date",
+          "description": "Date of sample collection (YYYY-MM-DD)"
+        },
+        "collection_method": {
+          "type": "string",
+          "enum": [
+            "worker_bee_collection",
+            "nonlethal_leg_clip",
+            "swarm_collection"
+          ],
+          "description": "Method used for collection"
+        },
+        "life_stage": {
+          "type": "string",
+          "enum": [
+            "adult_worker",
+            "adult_drone",
+            "queen",
+            "larva"
+          ],
+          "description": "Developmental stage at collection"
+        },
+        "preservation_method": {
+          "type": "string",
+          "enum": [
+            "ethanol_95_100_percent",
+            "RNAlater",
+            "dry_ice",
+            "liquid_nitrogen"
+          ],
+          "description": "Method used for sample preservation"
+        },
+        "coc_id": {
+          "type": "string",
+          "pattern": "^COC-[A-Z0-9]{8,20}$",
+          "description": "Chain of Custody identifier"
+        }
+      },
+      "required": ["sample_id", "collection_date", "preservation_method"]
+    }
+  },
+  "required": ["study", "site", "sample"]
+}
