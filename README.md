@@ -1,5 +1,4 @@
 # BLEUHeritage-Bee-Genetics-Standards-Ethical-Reproducible-Framework
-Framework for standardized bee genetics: JSON-LD metadata, ethical protocols, governance with FAIR/CARE principles. Privacy-by-design, automated compliance, tiered access. Supports reproducible genomics for conservation, agriculture, climate studies with data sovereignty.
 # BLEUHeritage Bee Genetics Standards & Protocols
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)
@@ -27,6 +26,12 @@ Standardized framework for bee genetics research with integrated ethical governa
 - Tiered data access model
 - Community engagement protocols
 
+### 🔒 Privacy & Security
+- Privacy by design implementation
+- Location masking and generalization
+- Tiered data classification system
+- Security best practices guide
+
 ### 🧪 Example Implementations
 - Sample metadata files
 - Configuration examples
@@ -37,40 +42,15 @@ Standardized framework for bee genetics research with integrated ethical governa
 ### For Researchers
 1. Review the [field protocols](protocols/field-collection-protocol.md)
 2. Use the [metadata schema](schema/metadata-schema.json) for your study
-
-  
-## **Also add this to README.md** (update section):
-
-Add this section to your existing README.md:
-
-```markdown
-## 🔒 Privacy and Security
-
-The BLEUHeritage framework includes comprehensive privacy and security measures:
-
-### Key Features:
-- **Privacy by Design**: Built-in protection from data collection through sharing
-- **Tiered Data Access**: PUBLIC, COLLABORATOR, INTERNAL, and RESTRICTED tiers
-- **Location Privacy**: Automatic coordinate masking and generalization
-- **Consent Management**: Digital tracking of consent and usage permissions
-- **Security Controls**: Role-based access, encryption, and audit logging
-
-### Implementation:
-- See [Privacy and Security Documentation](docs/privacy-security.md) for details
-- Reference implementation includes basic privacy controls
-- Commercial version offers advanced security features
-
-### Compliance:
-- GDPR-ready consent and data protection
-- Nagoya Protocol benefit-sharing implementation
-- Indigenous data sovereignty (CARE Principles)
-- Tiered access for regulatory compliance
-4. Validate data with our [validation rules](schema/validation-rules.json)
+3. Validate data with our [validation rules](schema/validation-rules.json)
 
 ### For Developers
 ```bash
 # Clone repository
 git clone https://github.com/bleuheritage/standards.git
+
+# Validate sample metadata
+python examples/validation-example.py examples/sample-metadata.csv
 
 @software{bleuheritage_bee_genetics_standards_2025,
   author       = Cassandra Harrison,
