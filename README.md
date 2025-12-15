@@ -37,7 +37,35 @@ Standardized framework for bee genetics research with integrated ethical governa
 ### For Researchers
 1. Review the [field protocols](protocols/field-collection-protocol.md)
 2. Use the [metadata schema](schema/metadata-schema.json) for your study
-3. Validate data with our [validation rules](schema/validation-rules.json)
+
+  
+## **Also add this to README.md** (update section):
+
+Add this section to your existing README.md:
+
+```markdown
+## 🔒 Privacy and Security
+
+The BLEUHeritage framework includes comprehensive privacy and security measures:
+
+### Key Features:
+- **Privacy by Design**: Built-in protection from data collection through sharing
+- **Tiered Data Access**: PUBLIC, COLLABORATOR, INTERNAL, and RESTRICTED tiers
+- **Location Privacy**: Automatic coordinate masking and generalization
+- **Consent Management**: Digital tracking of consent and usage permissions
+- **Security Controls**: Role-based access, encryption, and audit logging
+
+### Implementation:
+- See [Privacy and Security Documentation](docs/privacy-security.md) for details
+- Reference implementation includes basic privacy controls
+- Commercial version offers advanced security features
+
+### Compliance:
+- GDPR-ready consent and data protection
+- Nagoya Protocol benefit-sharing implementation
+- Indigenous data sovereignty (CARE Principles)
+- Tiered access for regulatory compliance
+4. Validate data with our [validation rules](schema/validation-rules.json)
 
 ### For Developers
 ```bash
