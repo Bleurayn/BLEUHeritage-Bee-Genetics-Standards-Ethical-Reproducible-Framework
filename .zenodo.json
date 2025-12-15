@@ -1,0 +1,42 @@
+{
+  "title": "BLEUHeritage Bee Genetics Standards and Protocols",
+  "description": "Standardized framework for bee genetics research with integrated ethical governance, data privacy, and reproducible science practices. Includes metadata schemas, field protocols, governance models, and example implementations.",
+  "creators": [
+    {
+      "name": "BLEUHeritage",
+      "affiliation": "BLEUHeritage"
+    }
+  ],
+  "keywords": [
+    "bee-genetics",
+    "metadata-standards",
+    "reproducible-research",
+    "data-governance",
+    "biodiversity",
+    "conservation-genetics",
+    "open-science",
+    "data-sovereignty"
+  ],
+  "license": {
+    "id": "CC-BY-4.0"
+  },
+  "upload_type": "software",
+  "access_right": "open",
+  "related_identifiers": [
+    {
+      "relation": "isDocumentedBy",
+      "identifier": "https://bleuheritage.org/docs/bee-genetics-standards"
+    }
+  ],
+  "communities": [
+    {
+      "identifier": "bioschemas"
+    },
+    {
+      "identifier": "biodiversity"
+    },
+    {
+      "identifier": "openscience"
+    }
+  ]
+}
