@@ -1,0 +1,27 @@
+name: Zenodo Deposit
+on:
+  release:
+    types: [published, edited]
+
+jobs:
+  deposit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Create Zenodo deposit
+        env:
+          ZENODO_TOKEN: ${{ secrets.ZENODO_TOKEN }}
+          ZENODO_SANDBOX: false  # Set to true for testing
+        run: |
+          # Install dependencies
+          pip install requests
+          
+          # Create deposit
+          python .github/workflows/create_deposit.py
+          
+          # Get DOI from response
+          echo "Deposit created successfully!"
